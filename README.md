@@ -32,4 +32,4 @@ and Brendan Winn.
 
 ## License
 
-To be decided.
+MIT: <https://mit-license.org>
