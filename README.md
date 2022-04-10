@@ -17,11 +17,18 @@ exclude products with specified ingredients.
 
 ## Installation
 
-Nothing to install just yet.
+Installation requires Docker and Docker-Compose. Simply clone the repo to the
+desired location.
 
 ## Usage
 
-None just yet.
+To use run `sudo docker-compose up` from the project's root directory. If
+errors occur, adding the `--build` option to the previous command may solve the
+issue. The webpage should then be displayed at <http://localhost:8000>.
+
+To stop the app, either use *Ctrl+C* in the same terminal as used to run the
+previous command, or open a new terminal window, navigate to the project's root
+directory, and run `docker-compose down`.
 
 ## Credits
 
