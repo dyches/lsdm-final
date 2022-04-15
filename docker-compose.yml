@@ -2,18 +2,31 @@ version: "3.9"
 
 services:
   db:
+    build: 
+      context: ./database
+      dockerfile: Dockerfile
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      test: curl -s https://localhost:5432 >/dev/null; if [[ $$? == 52]]; then echo 0; else echo 1; fi
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
   web:
-    build: .
+    build: 
+      context: ./django
+      dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./django:/code
+
+    # The docs recommend against this port mapping, change it later
     ports:
       - "8000:8000"
     environment:
@@ -23,3 +36,5 @@ services:
     depends_on:
       - db
 
+volumes:
+  pg_data:
