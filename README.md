@@ -17,18 +17,30 @@ exclude products with specified ingredients.
 
 ## Installation
 
-Installation requires Docker and Docker-Compose. Simply clone the repo to the
-desired location.
+Installation requires Docker and Docker-Compose. 
+
+Clone the repo to the desired location. To get the food data in the database,
+copy the csv data from [Open Food Facts](https://world.openfoodfacts.org/data),
+and place it in the *database* directory with the name *foodfacts.csv*. 
 
 ## Usage
 
 To use run `sudo docker-compose up` from the project's root directory. If
 errors occur, adding the `--build` option to the previous command may solve the
-issue. The webpage should then be displayed at <http://localhost:8000>.
+issue. 
+
+If both containers successfully build, but the logs indicate that the web-app
+couldn't connect to the database, then stopping and restarting will often fix
+the problem.
+
+Once the containers are running, a webpage should then be displayed at
+<http://localhost:8000>. The database container can be entered into with
+`docker exec -it lsdm-final-db-1 psql -U postgres`. To edit the 
 
 To stop the app, either use *Ctrl+C* in the same terminal as used to run the
 previous command, or open a new terminal window, navigate to the project's root
-directory, and run `docker-compose down`.
+directory, and run `docker-compose down`. To remove any volumes that have been
+installed, add the '--volumes' flag.
 
 ## Credits
 
