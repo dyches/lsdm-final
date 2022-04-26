@@ -28,5 +28,5 @@ df['ingredients_text'] = df['ingredients_text'].str.lower()
 
 df_final = df.loc[:, df.columns!='detect']
 
-df_final.to_csv('Finalfiltered_data.csv')
+df_final.to_csv('foodfacts.csv')
 
