@@ -52,7 +52,9 @@ the problem.
 
 Once the containers are running, a webpage should then be displayed at
 <http://localhost:8000>. The database container can be entered into with
-`docker exec -it lsdm-final-db-1 psql -U postgres`. To edit the 
+```
+docker exec -it lsdm-final-db-1 psql -U postgres
+```
 
 To stop the app, either use *Ctrl+C* in the same terminal as used to run the
 previous command, or open a new terminal window, navigate to the project's root
