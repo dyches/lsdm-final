@@ -27,6 +27,19 @@ Facts](https://world.openfoodfacts.org/data),place it in the *utils* directory
 run `preprocessing.py`. Once the script finishes, move the `foodfacts.csv` file
 into the *database* directory.
 
+The following commands should be run from the project's root.
+```
+docker-compose run web python manage.py makemigrations
+docker-compose run web python manage.py migrate
+```
+
+### Removal
+To uninstall, run
+```
+docker-compose down --volumes
+```
+from the project's root.
+
 ## Usage
 
 To use run `sudo docker-compose up` from the project's root directory. If
@@ -43,8 +56,7 @@ Once the containers are running, a webpage should then be displayed at
 
 To stop the app, either use *Ctrl+C* in the same terminal as used to run the
 previous command, or open a new terminal window, navigate to the project's root
-directory, and run `docker-compose down`. To remove any volumes that have been
-installed, add the '--volumes' flag.
+directory, and run `docker-compose down`.
 
 ## Credits
 
