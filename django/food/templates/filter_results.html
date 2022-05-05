@@ -1,0 +1,18 @@
+<h1>Filter Results</h1>
+
+  <table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Country</th>
+        <th>Ingredients</th>
+    </tr>
+  {% for Food in object_list %}
+    <tr>
+      <td>{{ Food.id }}</td>
+      <td>{{ Food.product_name }}</td>
+      <td>{{ Food.countries_en }}</td>
+      <td>{{ Food.ingredients_text }}</td>
+    </tr>
+  {% endfor %}
+</table>
