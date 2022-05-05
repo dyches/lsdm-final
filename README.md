@@ -25,12 +25,19 @@ Clone the repo to the desired location. To get the food data in the database,
 copy the csv data from [Open Food
 Facts](https://world.openfoodfacts.org/data),place it in the *utils* directory
 run `preprocessing.py`. Once the script finishes, move the `foodfacts.csv` file
-into the *database* directory.
+into the *database* directory and the *django* directory.
 
 The following commands should be run from the project's root.
 ```
 docker-compose run web python manage.py makemigrations
 docker-compose run web python manage.py migrate
+```
+
+If the data is missing from the tables use this command from the *django* directory.
+Please ensure that the `foodfacts.csv` file is placed in the *django* 
+directory before attempting this command.
+```
+docker-compose run web python manage.py load_data food_facts.csv
 ```
 
 ### Removal
