@@ -58,7 +58,7 @@ couldn't connect to the database, then stopping and restarting will often fix
 the problem.
 
 Once the containers are running, a webpage should then be displayed at
-<http://localhost:8000>. The database container can be entered into with
+<http://localhost:8000/food/>. The database container can be entered into with
 ```
 docker exec -it lsdm-final-db-1 psql -U postgres
 ```
