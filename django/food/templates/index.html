@@ -1,0 +1,45 @@
+<h1 style="text-align:center">Team ESCA</h1>
+
+        <!-- What it does explanation -->
+        <h3>What it does:</h3>
+        <p> Our team name is 'ESCA' which stands for food in Latin.</p>
+        <p>This website interacts with a database that contains the name of food products that are sold in the U.S., Mexico and UK.</p>
+
+        <!-- How to use it explanation -->
+        <h3>How to use it:</h3>
+        <ol>
+                <li>Enter food name in text field.</li>
+                <li>Click Enter.</li>
+                <li>Results will be given below.</li>
+        </ol>
+
+	<h2 style="text-align:center; color:red;">Disclaimer: </h2>
+	<p style="text-align:center">We provide this service in the hopes that it will be useful,<br>
+		but provide no guarantee about the accuracy of the results.<p>
+
+<h3>Insert Food Name: </h3>
+<form action="{% url 'search_results' %}" method="get">
+    <input name="q" type="text" placeholder="Search...">
+  </form>
+
+<form action="{% url 'filter_results' %}" method="get">
+    <input name="q" type="text" placeholder="Filter...">
+  </form>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Country</th>
+        <th>Ingredients</th>
+    </tr>
+{% for x in myfood %}
+<tr>
+<td>{{ x.id }}</td>
+<td>{{ x.product_name }}</td>
+<td>{{ x.countries_en }}</td>
+<td>{{ x.ingredients_text }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h4 style="text-align:center"> Credits: Brendan Winn, Julian De La Rosa, Michelle Mendez, Somraj Dangi, John Deleon, and Kathryn Dyches</h4>
